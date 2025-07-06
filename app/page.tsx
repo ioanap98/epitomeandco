@@ -28,30 +28,6 @@ import type { Variants } from "framer-motion";
 
 
 
-
-export default function Portfolio() {
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [focusedField, setFocusedField] = useState<string | null>(null)
-
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
-
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-    }, 3000)
-  }
-
 const projects = [
   {
     title: "Homepage Concept",
