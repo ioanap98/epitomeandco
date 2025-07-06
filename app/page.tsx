@@ -19,9 +19,7 @@ import {
   Zap,
 } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
-import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import type { Variants } from "framer-motion";
@@ -433,7 +431,7 @@ const projects = [
                         "Every portfolio is built around your unique goals and style.",
                       color: "from-teal-400 to-blue-400",
                     },
-                  ].map((value, index) => (
+                  ].map((value) => (
                     <motion.div
                       key={value.title}
                       variants={itemVariants}
@@ -569,7 +567,7 @@ const projects = [
                 description:
                   "Don’t worry about the tech or launch stress, I’ll handle domain setup, basic SEO, and handover guidance.  Once your site is live, you’ll have everything you need to share it with confidence.",
               },
-            ].map((service, index) => (
+            ].map((service) => (
               <motion.div key={service.title} variants={serviceVariants} whileHover="hover" className="cursor-pointer">
                 <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white h-full">
                   <CardContent className="p-8 text-center">
