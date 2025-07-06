@@ -26,7 +26,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import type { Variants } from "framer-motion";
 
-
+export default function Portfolio() {
 
 const projects = [
   {
@@ -612,85 +612,85 @@ const projects = [
       </section>
 
      
-<section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-  <div className="max-w-6xl mx-auto">
-    {/* Header */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8 }}
-      className="text-center mb-16"
-    >
-      <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-        See What I&lsquove Been Creating
-      </h2>
-      <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-        A glimpse into recent projects that showcase simple, custom portfolio sites.
-      </p>
-    </motion.div>
-
-    {/* Grid of Projects */}
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      className="grid gap-8 md:grid-cols-1"
-    >
-      {projects.map((project, idx) => (
-        <motion.div
-          key={`${project.title}-${idx}`}
-          variants={portfolioVariants}
-          whileHover="hover"
-          className="relative group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300"
-        >
-          {/* Carousel */}
-        <Swiper spaceBetween={10} slidesPerView={1} loop>
-  {project.images.map((img, i) => (
-    <SwiperSlide key={i} className="flex justify-center">
-      {/* 
-        Increase the max width here — you can also
-        remove it entirely to let it stretch full-width.
-      */}
-      <div className="grid grid-cols-1 ">
-        <Image
-          src={img}
-          alt={`${project.title} ${i + 1}`}
-          width={1200}            // bump up intrinsic size
-          height={600}
-          layout="responsive"
-          className="object-contain"
-        />
-      </div>
-    </SwiperSlide>
-  ))}
-</Swiper>
-
-
-          {/* Gradient Overlay */}
+      <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-          />
-
-          {/* Title / Subtitle */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileHover={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            className="absolute bottom-4 left-4 text-white z-10"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
           >
-            <h3 className="font-serif text-lg font-bold">{project.title}</h3>
-            <p className="text-sm opacity-90">{project.subtitle}</p>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              See What I&lsquove Been Creating
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              A glimpse into recent projects that showcase simple, custom portfolio sites.
+            </p>
           </motion.div>
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
-</section>
+
+          {/* Grid of Projects */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid gap-8 md:grid-cols-1"
+          >
+            {projects.map((project, idx) => (
+              <motion.div
+                key={`${project.title}-${idx}`}
+                variants={portfolioVariants}
+                whileHover="hover"
+                className="relative group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300"
+              >
+                {/* Carousel */}
+              <Swiper spaceBetween={10} slidesPerView={1} loop>
+        {project.images.map((img, i) => (
+          <SwiperSlide key={i} className="flex justify-center">
+            {/* 
+              Increase the max width here — you can also
+              remove it entirely to let it stretch full-width.
+            */}
+            <div className="grid grid-cols-1 ">
+              <Image
+                src={img}
+                alt={`${project.title} ${i + 1}`}
+                width={1200}            // bump up intrinsic size
+                height={600}
+                layout="responsive"
+                className="object-contain"
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+
+                {/* Gradient Overlay */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                />
+
+                {/* Title / Subtitle */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                  className="absolute bottom-4 left-4 text-white z-10"
+                >
+                  <h3 className="font-serif text-lg font-bold">{project.title}</h3>
+                  <p className="text-sm opacity-90">{project.subtitle}</p>
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-stone-50">
@@ -734,13 +734,7 @@ const projects = [
                           id="name"
                           name="name"
                           placeholder="Your name"
-                          className={`border-stone-200 transition-all duration-300 ${
-                            focusedField === "name"
-                              ? "border-teal-500 ring-2 ring-teal-200 shadow-lg"
-                              : "focus:border-teal-500 focus:ring-teal-500"
-                          }`}
-                          onFocus={() => setFocusedField("name")}
-                          onBlur={() => setFocusedField(null)}
+                          className="border-stone-200 transition-all duration-300"                          
                         />
                       </motion.div>
                       <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
@@ -752,32 +746,20 @@ const projects = [
                           name="email"
                           type="email"
                           placeholder="your@email.com"
-                          className={`border-stone-200 transition-all duration-300 ${
-                            focusedField === "email"
-                              ? "border-teal-500 ring-2 ring-teal-200 shadow-lg"
-                              : "focus:border-teal-500 focus:ring-teal-500"
-                          }`}
-                          onFocus={() => setFocusedField("email")}
-                          onBlur={() => setFocusedField(null)}
+                          className="border-stone-200 transition-all duration-300"
                         />
                       </motion.div>
                     </div>
 
                     <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
-                      <label htmlFor="project-type" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
                         Project Type
                       </label>
                       <Input
                         id="project-type"
                         name="project-type"
                         placeholder="Personal Portfolio, Brand Showcase, etc."
-                        className={`border-stone-200 transition-all duration-300 ${
-                          focusedField === "project-type"
-                            ? "border-teal-500 ring-2 ring-teal-200 shadow-lg"
-                            : "focus:border-teal-500 focus:ring-teal-500"
-                        }`}
-                        onFocus={() => setFocusedField("project-type")}
-                        onBlur={() => setFocusedField(null)}
+                        className="border-stone-200 transition-all duration-300"
                       />
                     </motion.div>
 
@@ -790,43 +772,10 @@ const projects = [
                         name="message"
                         placeholder="Tell me about your project and vision..."
                         rows={4}
-                        className={`border-stone-200 transition-all duration-300 ${
-                          focusedField === "message"
-                            ? "border-teal-500 ring-2 ring-teal-200 shadow-lg"
-                            : "focus:border-teal-500 focus:ring-teal-500"
-                        }`}
-                        onFocus={() => setFocusedField("message")}
-                        onBlur={() => setFocusedField(null)}
+                        className="border-stone-200 transition-all duration-300"
                       />
                     </motion.div>
 
-                    <AnimatePresence mode="wait">
-                      {!isSubmitted ? (
-                        <motion.div
-                          key="submit-button"
-                          initial={{ opacity: 1 }}
-                          exit={{ opacity: 0, scale: 0.8 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <Button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="w-full bg-teal-700 hover:bg-teal-800 text-white py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-70"
-                          >Submit Form</Button>
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          key="success-message"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.5, ease: "easeOut" }}
-                          className="w-full bg-green-100 text-green-800 py-3 px-6 rounded-full text-center font-medium"
-                        >
-
-                
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
                   </form>
                   <span>{result}</span>
 
