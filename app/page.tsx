@@ -255,7 +255,7 @@ const projects = [
           className="absolute inset-0 z-0"
         >
           <Image
-            src="/hero1.png "
+            src="/hero1.png"
             alt="Creative workspace background"
             fill
             className="object-cover"
