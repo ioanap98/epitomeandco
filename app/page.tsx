@@ -17,9 +17,6 @@ import {
   Star,
   Heart,
   Zap,
-  Loader2,
-  Check,
-  Copy
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -42,9 +39,6 @@ export default function Portfolio() {
     setIsLoaded(true)
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
 
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 2000))
@@ -419,10 +413,10 @@ const projects = [
                 className="space-y-6"
               >
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  Hi, I'm <span className="font-semibold text-teal-700">Ioana</span>! I’m a UK-based web developer who helps small brands and independent creatives build an intentional online presence through clean, minimal portfolio websites.
+                  Hi, I&lsquom <span className="font-semibold text-teal-700">Ioana</span>! I’m a UK-based web developer who helps small brands and independent creatives build an intentional online presence through clean, minimal portfolio websites.
                 </motion.p>
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  Whether you're an artist, service provider, or content creator, I’ll work with you to build a custom portfolio that reflects your vision and makes your work shine.
+                  Whether you&lsquore an artist, service provider, or content creator, I’ll work with you to build a custom portfolio that reflects your vision and makes your work shine.
                 </motion.p>
               </motion.div>
 
@@ -538,7 +532,7 @@ const projects = [
               >
                 <h4 className="font-serif text-lg font-semibold mb-2">Ready to work together?</h4>
                 <p className="text-sm opacity-90 mb-4">
-                  Let's create something beautiful that represents your brand perfectly.
+                  Let&lsquos create something beautiful that represents your brand perfectly.
                 </p>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button
@@ -653,7 +647,7 @@ const projects = [
       className="text-center mb-16"
     >
       <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-        See What I've Been Creating
+        See What I&lsquove Been Creating
       </h2>
       <p className="text-xl text-gray-600 max-w-2xl mx-auto">
         A glimpse into recent projects that showcase simple, custom portfolio sites.
@@ -736,7 +730,7 @@ const projects = [
               Ready to bring your idea to life?
             </h2>
             <p className="text-xl text-gray-600">
-              Let's chat about your project and see how we can work together to create something amazing.
+              Let&lsquos chat about your project and see how we can work together to create something amazing.
             </p>
           </motion.div>
 
@@ -750,8 +744,8 @@ const projects = [
               <Card className="border-0 shadow-2xl bg-white">
                 <CardContent className="p-8">
                   <div className="text-center mb-6">
-                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">Let's Start a Conversation</h3>
-                    <p className="text-gray-600">Tell me about your vision and let's make it happen together.</p>
+                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">Let&lsquos Start a Conversation</h3>
+                    <p className="text-gray-600">Tell me about your vision and let&lsquos make it happen together.</p>
                   </div>
 
                   <form onSubmit={onSubmit} className="space-y-6">
@@ -916,7 +910,7 @@ const projects = [
                     className="mt-6 text-center"
                   >
                     <p className="text-sm text-gray-500 italic font-serif">
-                      "Every great project starts with a simple conversation. I can't wait to hear from you!"
+                      Every great project starts with a simple conversation. I can&lsquot wait to hear from you!
                     </p>
                   </motion.div>
                 </CardContent>
