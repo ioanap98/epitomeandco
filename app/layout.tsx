@@ -1,6 +1,7 @@
 import type React from "react"
 import { Playfair_Display, Inter } from "next/font/google"
 import "./globals.css"
+import { Analytics } from "@vercel/analytics/next"
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
