@@ -27,6 +27,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import type { Variants } from "framer-motion";
 
 
 
@@ -96,17 +97,17 @@ const projects = [
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut", // use a valid string for ease
+        ease: "easeOut", // This is correct
       },
     },
-  }
+  };
 
   const wordVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -128,7 +129,7 @@ const projects = [
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: [0.42, 0, 1, 1] as [number, number, number, number], // Add 'as [number, number, number, number]'
       },
     },
     hover: {
@@ -137,11 +138,10 @@ const projects = [
       rotate: 1,
       transition: {
         duration: 0.3,
-        ease: "easeOut",
+        ease: [0.42, 0, 1, 1] as [number, number, number, number], // Add 'as [number, number, number, number]'
       },
     },
   }
-
   const portfolioVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -149,14 +149,14 @@ const projects = [
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: [0.42, 0, 1, 1] as [number, number, number, number], // Add 'as [number, number, number, number]'
       },
     },
     hover: {
       scale: 1.05,
       transition: {
         duration: 0.3,
-        ease: "easeOut",
+        ease: [0.42, 0, 1, 1] as [number, number, number, number], // Add 'as [number, number, number, number]'
       },
     },
   }
@@ -164,12 +164,12 @@ const projects = [
   // integrate form 
   const [result, setResult] = React.useState("");
 
-  const onSubmit = async (event) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setResult("Sending....");
-    const formData = new FormData(event.target);
+    const formData = new FormData(event.currentTarget);
 
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    formData.append("access_key", "66f9c46a-07d4-4e4e-b2e4-1e8da31cf793");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -180,7 +180,7 @@ const projects = [
 
     if (data.success) {
       setResult("Form Submitted Successfully");
-      event.target.reset();
+      event.currentTarget.reset();
     } else {
       console.log("Error", data);
       setResult(data.message);
@@ -501,31 +501,32 @@ const projects = [
 
               {/* Quick Stats */}
               <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ delay: 0.5, duration: 0.6 }}
-  className="grid grid-cols-2 gap-4"
->
-  {[
-    { number: "Thoughtful Design",  icon: "🚀" },
-    { number: "Client-Focused",     icon: "⭐" },
-    { number: "Growth-Oriented",    icon: "📈" },
-    { number: "Fast & Reliable",    icon: "⚡" },
-  ].map((stat, index) => (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-      whileHover={{ scale: 1.05, y: -2 }}
-      className="bg-white rounded-2xl p-4 shadow-md text-center hover:shadow-lg transition-all duration-300"
-    >
-      <div className="text-2xl mb-1">{stat.icon}</div>
-      <div className="font-bold text-lg text-gray-900">{stat.number}</div>
-    </motion.div>
-  ))}
-</motion.div>
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="grid grid-cols-2 gap-4"
+              >
+              {[
+                { number: "Thoughtful Design", icon: "🚀" },
+                { number: "Client-Focused", icon: "⭐" },
+                { number: "Growth-Oriented", icon: "📈" },
+                { number: "Fast & Reliable", icon: "⚡" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.number} // Add this line
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="bg-white rounded-2xl p-4 shadow-md text-center hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="text-2xl mb-1">{stat.icon}</div>
+                  <div className="font-bold text-lg text-gray-900">{stat.number}</div>
+                </motion.div>
+              ))}
+              </motion.div>
 
               {/* Call to Action */}
               <motion.div
@@ -665,7 +666,7 @@ const projects = [
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="grid gap-8 md:grid-cols-2"
+      className="grid gap-8 md:grid-cols-1"
     >
       {projects.map((project, idx) => (
         <motion.div
@@ -688,6 +689,7 @@ const projects = [
           alt={`${project.title} ${i + 1}`}
           width={1200}            // bump up intrinsic size
           height={600}
+          layout="responsive"
           className="object-contain"
         />
       </div>
