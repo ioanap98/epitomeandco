@@ -21,23 +21,47 @@ const inter = Inter({
 // app/page.tsx
 
 export const metadata = {
-  title: "Helping Small Brands & Creators Stand Out Online | Epitome & Co",
-  description:
-    "Simple & stylish portfolio websites built for creatives and small brands. Let’s craft a custom one-page or multi-page showcase that truly represents your work.",
-  robots: "index, follow",
-  openGraph: {
-    title:
-      "Helping Small Brands & Creators Stand Out Online | Epitome & Co",
-    description:
-      "Custom portfolio websites designed with clean layouts, subtle animations, and aftercare guidance to help your brand shine.",
-    type: "website",
-  },
+  title: 'Epitome & Co | Portfolio Websites for Small Brands & Creators',
+  description: 'Helping small brands & creators stand out online with simple, stylish portfolio websites—thoughtful design, client-focused, growth-oriented, and fast & reliable.',
+  keywords: [
+    'portfolio website design',
+    'small brand web design',
+    'creator portfolio sites',
+    'freelance web developer UK',
+    'custom portfolio website',
+    'Epitome & Co'
+  ],
+  authors: [{ name: 'Epitome & Co', url: 'https://epitomeandco.com' }],
+  creator: 'Epitome & Co',
+  metadataBase: new URL('https://epitomeandco.com'),
   icons: {
-    icon: "/logo.png",           // favicon for browsers
-    shortcut: "/logo.png",       // legacy “shortcut icon”
-    apple: "/logo.png",          // iOS home-screen icon
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png'
+  },
+  openGraph: {
+    title: 'Epitome & Co | Portfolio Websites for Small Brands & Creators',
+    description: 'Stand out online with a custom portfolio site from Epitome & Co—helping creators and small brands showcase their work with simple, stylish, high-performing designs.',
+    url: 'https://epitomeandco.com',
+    siteName: 'Epitome & Co',
+    images: [
+      {
+        url: 'https://epitomecreatives.com/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Screenshot of a clean, stylish portfolio website by Epitome & Co',
+      },
+    ],
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Epitome & Co | Stand Out Online with Stylish Portfolio Websites',
+    description: 'Custom portfolio websites for small brands & creators—thoughtful design, interactive elements, and reliable performance.'  
   },
 };
+
 
 
 
@@ -49,6 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} scroll-smooth`}>
       <body className={inter.className}>{children}</body>
+      <Analytics />
     </html>
   )
 }

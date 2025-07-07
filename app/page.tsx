@@ -136,7 +136,7 @@ const projects = [
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setResult("Sending....");
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(event.target as HTMLFormElement);
 
     formData.append("access_key", "66f9c46a-07d4-4e4e-b2e4-1e8da31cf793");
 
@@ -149,12 +149,16 @@ const projects = [
 
     if (data.success) {
       setResult("Form Submitted Successfully");
-      event.currentTarget.reset();
+      (event.target as HTMLFormElement).reset();
     } else {
       console.log("Error", data);
       setResult(data.message);
     }
   };
+
+
+
+
 
   return (
     
@@ -723,60 +727,74 @@ const projects = [
                     <p className="text-gray-600">Tell me about your vision and let&lsquos make it happen together.</p>
                   </div>
 
-                  <form onSubmit={onSubmit} className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-4">
+                  <div>                     
+                    <form onSubmit={onSubmit} className="space-y-6">
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                            Name
+                          </label>
+                          <Input
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            className="border-stone-200 transition-all duration-300"                          
+                          />
+                        </motion.div>
+                        <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                            Email
+                          </label>
+                          <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="your@email.com"
+                            className="border-stone-200 transition-all duration-300"
+                          />
+                        </motion.div>
+                      </div>
+
                       <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                          Name
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Project Type
                         </label>
                         <Input
-                          id="name"
-                          name="name"
-                          placeholder="Your name"
-                          className="border-stone-200 transition-all duration-300"                          
-                        />
-                      </motion.div>
-                      <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                          Email
-                        </label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          placeholder="your@email.com"
+                          id="project-type"
+                          name="project-type"
+                          placeholder="Personal Portfolio, Brand Showcase, etc."
                           className="border-stone-200 transition-all duration-300"
                         />
                       </motion.div>
-                    </div>
 
-                    <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Project Type
-                      </label>
-                      <Input
-                        id="project-type"
-                        name="project-type"
-                        placeholder="Personal Portfolio, Brand Showcase, etc."
-                        className="border-stone-200 transition-all duration-300"
-                      />
-                    </motion.div>
+                      <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                          Message
+                        </label>
+                        <Textarea
+                          id="message"
+                          name="message"
+                          placeholder="Tell me about your project and vision..."
+                          rows={4}
+                          className="border-stone-200 transition-all duration-300"
+                        />
+                      </motion.div>
 
-                    <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                        Message
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        placeholder="Tell me about your project and vision..."
-                        rows={4}
-                        className="border-stone-200 transition-all duration-300"
-                      />
-                    </motion.div>
+                      <motion.div                        
+                            initial={{ opacity: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                        <Button
+                          type="submit"                            
+                          className="w-full bg-teal-700 hover:bg-teal-800 text-white py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-70"
+                        >Submit Form</Button>
+                      </motion.div>
 
-                  </form>
-                  <span>{result}</span>
+
+                    </form>
+                    <span>{result}</span>
+                  </div>
 
                   {/* Contact Methods */}
                   <motion.div
