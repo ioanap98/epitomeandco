@@ -392,10 +392,10 @@ const projects = [
                 className="space-y-6"
               >
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  Hi, I&lsquom <span className="font-semibold text-teal-700">Ioana</span>! I’m a UK-based web developer who helps small brands and independent creatives build an intentional online presence through clean, minimal portfolio websites.
+                  Hi, I'm <span className="font-semibold text-teal-700">Ioana</span>! I'm a UK-based web developer who helps small brands and independent creatives build an intentional online presence through clean, minimal portfolio websites.
                 </motion.p>
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  Whether you&lsquore an artist, service provider, or content creator, I’ll work with you to build a custom portfolio that reflects your vision and makes your work shine.
+                  Whether you're an artist, service provider, or content creator, I'll work with you to build a custom portfolio that reflects your vision and makes your work shine.
                 </motion.p>
               </motion.div>
 
@@ -511,7 +511,7 @@ const projects = [
               >
                 <h4 className="font-serif text-lg font-semibold mb-2">Ready to work together?</h4>
                 <p className="text-sm opacity-90 mb-4">
-                  Let&lsquos create something beautiful that represents your brand perfectly.
+                  Let's create something beautiful that represents your brand perfectly.
                 </p>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button
@@ -615,85 +615,91 @@ const projects = [
       </section>
 
      
-      <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              See What I&lsquove Been Creating
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              A glimpse into recent projects that showcase simple, custom portfolio sites.
-            </p>
-          </motion.div>
+      
 
-          {/* Grid of Projects */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid gap-8 md:grid-cols-1"
-          >
-            {projects.map((project, idx) => (
-              <motion.div
-                key={`${project.title}-${idx}`}
-                variants={portfolioVariants}
-                whileHover="hover"
-                className="relative group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300"
-              >
-                {/* Carousel */}
-              <Swiper spaceBetween={10} slidesPerView={1} loop>
-        {project.images.map((img, i) => (
-          <SwiperSlide key={i} className="flex justify-center">
-            {/* 
-              Increase the max width here — you can also
-              remove it entirely to let it stretch full-width.
-            */}
-            <div className="grid grid-cols-1 ">
-              <Image
-                src={img}
-                alt={`${project.title} ${i + 1}`}
-                width={1200}            // bump up intrinsic size
-                height={600}
-                layout="responsive"
-                className="object-contain"
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      
+      
+      {/* Portfolio Section */}  
+        <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+          <div className="max-w-6xl mx-auto">
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+    
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                See What I've Been Creating
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                A glimpse into recent projects that showcase simple, custom portfolio sites.
+              </p>
+            </motion.div>
 
-
-                {/* Gradient Overlay */}
+            {/* Grid of Projects */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="grid gap-8 md:grid-cols-1"
+            >
+              {projects.map((project, idx) => (
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-                />
-
-                {/* Title / Subtitle */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 }}
-                  className="absolute bottom-4 left-4 text-white z-10"
+                  key={`${project.title}-${idx}`}
+                  variants={portfolioVariants}
+                  whileHover="hover"
+                  className="relative group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300"
                 >
-                  <h3 className="font-serif text-lg font-bold">{project.title}</h3>
-                  <p className="text-sm opacity-90">{project.subtitle}</p>
+                  {/* Carousel */}
+                <Swiper spaceBetween={10} slidesPerView={1} loop>
+          {project.images.map((img, i) => (
+            <SwiperSlide key={i} className="flex justify-center">
+              {/* 
+                Increase the max width here — you can also
+                remove it entirely to let it stretch full-width.
+              */}
+              <div className="grid grid-cols-1 ">
+                <Image
+                  src={img}
+                  alt={`${project.title} ${i + 1}`}
+                  width={1200}            // bump up intrinsic size
+                  height={600}
+                  layout="responsive"
+                  className="object-contain"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+
+                  {/* Gradient Overlay */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                  />
+
+                  {/* Title / Subtitle */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileHover={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="absolute bottom-4 left-4 text-white z-10"
+                  >
+                    <h3 className="font-serif text-lg font-bold">{project.title}</h3>
+                    <p className="text-sm opacity-90">{project.subtitle}</p>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+              ))}
+            </motion.div>
+          </div>
+        </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-stone-50">
@@ -709,7 +715,7 @@ const projects = [
               Ready to bring your idea to life?
             </h2>
             <p className="text-xl text-gray-600">
-              Let&lsquos chat about your project and see how we can work together to create something amazing.
+              Let's chat about your project and see how we can work together to create something amazing.
             </p>
           </motion.div>
 
@@ -723,8 +729,8 @@ const projects = [
               <Card className="border-0 shadow-2xl bg-white">
                 <CardContent className="p-8">
                   <div className="text-center mb-6">
-                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">Let&lsquos Start a Conversation</h3>
-                    <p className="text-gray-600">Tell me about your vision and let&lsquos make it happen together.</p>
+                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">Let's Start a Conversation</h3>
+                    <p className="text-gray-600">Tell me about your vision and let's make it happen together.</p>
                   </div>
 
                   <div>                     
@@ -852,7 +858,7 @@ const projects = [
                     className="mt-6 text-center"
                   >
                     <p className="text-sm text-gray-500 italic font-serif">
-                      Every great project starts with a simple conversation. I can&lsquot wait to hear from you!
+                      Every great project starts with a simple conversation. I can't wait to hear from you!
                     </p>
                   </motion.div>
                 </CardContent>
