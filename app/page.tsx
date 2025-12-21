@@ -13,47 +13,51 @@ import {
   Stars,
   Wrench,
   Mail,
-  Instagram,
+  MessageCircle,
   ArrowRight,
   Star,
   Heart,
   Zap,
+  Copy,
+  Check
 } from "lucide-react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import type { Variants } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+
+
+
+import PortfolioSection from "../components/portfolio";
+
+
 
 export default function Portfolio() {
 
-const projects = [
-  {
-    title: "Homepage Concept",
-    subtitle: "Hero section & intro layout",
-    images: ["/homepage-portfolio-website.png"],
-  },
-  {
-    title: "Homepage Variation",
-    subtitle: "Alternate hero & feature blocks",
-    images: ["/homepage-portfolio-website-2.png", "/homepage-portfolio-website.png"],
-  },
-  {
-    title: "About Page Design",
-    subtitle: "Bio & values section mockup",
-    images: ["/about-portfolio-website-2.png"],
-  },
-  {
-    title: "Services Section",
-    subtitle: "Features & offerings layout",
-    images: ["/services-portfolio-website-1.png"],
-  },
-  {
-    title: "Contact Page Layout",
-    subtitle: "Inquiry form & details",
-    images: ["/contact-portfolio-website-1.png"],
-  },
-];
+
+
+const EMAIL = "hello@epitomecreatives.com";
+const [emailCopied, setEmailCopied] = React.useState(false);
+
+const copyEmail = async () => {
+  try {
+    await navigator.clipboard.writeText(EMAIL);
+    setEmailCopied(true);
+    window.setTimeout(() => setEmailCopied(false), 1500);
+  } catch {
+    // Fallback (older browsers / blocked clipboard permissions)
+    const textarea = document.createElement("textarea");
+    textarea.value = EMAIL;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+    setEmailCopied(true);
+    window.setTimeout(() => setEmailCopied(false), 1500);
+  }
+};
 
 
   const containerVariants = {
@@ -616,90 +620,10 @@ const projects = [
 
      
       
-
+        <PortfolioSection />
       
       
-      {/* Portfolio Section */}  
-        <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-6xl mx-auto">
-            {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-    
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                See What I've Been Creating
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                A glimpse into recent projects that showcase simple, custom portfolio sites.
-              </p>
-            </motion.div>
-
-            {/* Grid of Projects */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="grid gap-8 md:grid-cols-1"
-            >
-              {projects.map((project, idx) => (
-                <motion.div
-                  key={`${project.title}-${idx}`}
-                  variants={portfolioVariants}
-                  whileHover="hover"
-                  className="relative group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300"
-                >
-                  {/* Carousel */}
-                <Swiper spaceBetween={10} slidesPerView={1} loop>
-          {project.images.map((img, i) => (
-            <SwiperSlide key={i} className="flex justify-center">
-              {/* 
-                Increase the max width here — you can also
-                remove it entirely to let it stretch full-width.
-              */}
-              <div className="grid grid-cols-1 ">
-                <Image
-                  src={img}
-                  alt={`${project.title} ${i + 1}`}
-                  width={1200}            // bump up intrinsic size
-                  height={600}
-                  layout="responsive"
-                  className="object-contain"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-
-                  {/* Gradient Overlay */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-                  />
-
-                  {/* Title / Subtitle */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                    className="absolute bottom-4 left-4 text-white z-10"
-                  >
-                    <h3 className="font-serif text-lg font-bold">{project.title}</h3>
-                    <p className="text-sm opacity-90">{project.subtitle}</p>
-                  </motion.div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
+      
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-stone-50">
@@ -814,7 +738,9 @@ const projects = [
                     <div className="flex justify-center space-x-6">
 
                       <motion.a
-                        href="https://instagram.com/ioacreatives"
+                        href="https://wa.me/40746067030"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center space-x-2 text-gray-600 hover:text-teal-700 transition-colors duration-300 group"
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.95 }}
@@ -824,26 +750,66 @@ const projects = [
                           whileHover={{ scale: 1.1, rotate: -5 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <Instagram className="w-5 h-5 text-teal-700" />
+                         
+                          <MessageCircle className="w-5 h-5 text-teal-700" />
+
                         </motion.div>
-                        <span className="text-sm font-medium">Instagram</span>
+
+                        <span className="text-sm font-medium">WhatsApp</span>
                       </motion.a>
 
-                      <motion.a
-                        href="mailto:hello@epitomecreatives.com"
-                        className="flex items-center space-x-2 text-gray-600 hover:text-teal-700 transition-colors duration-300 group"
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <motion.div
-                          className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center"
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <Mail className="w-5 h-5 text-teal-700" />
-                        </motion.div>
-                        <span className="text-sm font-medium">Email</span>
-                      </motion.a>
+
+                      <motion.button
+  type="button"
+  className="flex items-center space-x-2 text-gray-600 hover:text-teal-700 transition-colors duration-300 group relative"
+  whileHover={{ scale: 1.05, y: -2 }}
+  whileTap={{ scale: 0.95 }}
+  onClick={async () => {
+    const email = "hello@epitomecreatives.com";
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      // fallback
+      const textarea = document.createElement("textarea");
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+
+    setEmailCopied(true);
+    window.setTimeout(() => setEmailCopied(false), 1500);
+  }}
+  aria-label="Copy email address"
+  title="Click to copy email"
+>
+  <motion.div
+    className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center"
+    whileHover={{ scale: 1.1, rotate: 5 }}
+    transition={{ duration: 0.3 }}
+  >
+    <Mail className="w-5 h-5 text-teal-700" />
+  </motion.div>
+
+  <span className="text-sm font-medium">Email</span>
+
+  {/* "Email copied" bubble */}
+  <AnimatePresence>
+    {emailCopied && (
+      <motion.span
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 6 }}
+        transition={{ duration: 0.2 }}
+        className="absolute left-0 -bottom-8 rounded-full bg-gray-900 px-3 py-1 text-xs text-white whitespace-nowrap"
+      >
+        Email copied
+      </motion.span>
+    )}
+  </AnimatePresence>
+</motion.button>
+
 
 
                     </div>
