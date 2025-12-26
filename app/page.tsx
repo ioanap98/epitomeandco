@@ -17,13 +17,10 @@ import {
   ArrowRight,
   Star,
   Heart,
-  Zap,
-  Copy,
-  Check
+  Zap
 } from "lucide-react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import type { Variants } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
@@ -38,26 +35,9 @@ export default function Portfolio() {
 
 
 
-const EMAIL = "hello@epitomecreatives.com";
 const [emailCopied, setEmailCopied] = React.useState(false);
 
-const copyEmail = async () => {
-  try {
-    await navigator.clipboard.writeText(EMAIL);
-    setEmailCopied(true);
-    window.setTimeout(() => setEmailCopied(false), 1500);
-  } catch {
-    // Fallback (older browsers / blocked clipboard permissions)
-    const textarea = document.createElement("textarea");
-    textarea.value = EMAIL;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-    setEmailCopied(true);
-    window.setTimeout(() => setEmailCopied(false), 1500);
-  }
-};
+
 
 
   const containerVariants = {
@@ -115,24 +95,7 @@ const copyEmail = async () => {
       },
     },
   }
-  const portfolioVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.42, 0, 1, 1] as [number, number, number, number], // Add 'as [number, number, number, number]'
-      },
-    },
-    hover: {
-      scale: 1.05,
-      transition: {
-        duration: 0.3,
-        ease: [0.42, 0, 1, 1] as [number, number, number, number], // Add 'as [number, number, number, number]'
-      },
-    },
-  }
+
 
   // integrate form 
   const [result, setResult] = React.useState("");
@@ -396,10 +359,10 @@ const copyEmail = async () => {
                 className="space-y-6"
               >
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  Hi, I'm <span className="font-semibold text-teal-700">Ioana</span>! I'm a UK-based web developer who helps small brands and independent creatives build an intentional online presence through clean, minimal portfolio websites.
+                  Hi, I&apos;m <span className="font-semibold text-teal-700">Ioana</span>! I&apos;m a UK-based web developer who helps small brands and independent creatives build an intentional online presence through clean, minimal portfolio websites.
                 </motion.p>
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  Whether you're an artist, service provider, or content creator, I'll work with you to build a custom portfolio that reflects your vision and makes your work shine.
+                  Whether you&apos;re an artist, service provider, or content creator, I&apos;ll work with you to build a custom portfolio that reflects your vision and makes your work shine.
                 </motion.p>
               </motion.div>
 
@@ -515,7 +478,7 @@ const copyEmail = async () => {
               >
                 <h4 className="font-serif text-lg font-semibold mb-2">Ready to work together?</h4>
                 <p className="text-sm opacity-90 mb-4">
-                  Let's create something beautiful that represents your brand perfectly.
+                  Let&apos;s create something beautiful that represents your brand perfectly.
                 </p>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button
@@ -639,7 +602,7 @@ const copyEmail = async () => {
               Ready to bring your idea to life?
             </h2>
             <p className="text-xl text-gray-600">
-              Let's chat about your project and see how we can work together to create something amazing.
+              Let&apos;s chat about your project and see how we can work together to create something amazing.
             </p>
           </motion.div>
 
@@ -653,8 +616,8 @@ const copyEmail = async () => {
               <Card className="border-0 shadow-2xl bg-white">
                 <CardContent className="p-8">
                   <div className="text-center mb-6">
-                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">Let's Start a Conversation</h3>
-                    <p className="text-gray-600">Tell me about your vision and let's make it happen together.</p>
+                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-2">Let&apos;s Start a Conversation</h3>
+                    <p className="text-gray-600">Tell me about your vision and let&apos;s make it happen together.</p>
                   </div>
 
                   <div>                     
@@ -824,7 +787,7 @@ const copyEmail = async () => {
                     className="mt-6 text-center"
                   >
                     <p className="text-sm text-gray-500 italic font-serif">
-                      Every great project starts with a simple conversation. I can't wait to hear from you!
+                      Every great project starts with a simple conversation. I can&apos;t wait to hear from you!
                     </p>
                   </motion.div>
                 </CardContent>
