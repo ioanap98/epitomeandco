@@ -359,10 +359,10 @@ const [emailCopied, setEmailCopied] = React.useState(false);
                 className="space-y-6"
               >
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  I&apos;m <span className="font-semibold text-teal-700">Ioana</span>, a UK-based developer who builds lean, custom sites for service businesses. My focus: clear messaging, fast load times, and frictionless ways for visitors to contact you.
+                  I&apos;m <span className="font-semibold text-teal-700">Ioana</span>, a UK-based web developer working with service businesses internationally. My focus: clear messaging, fast load times, and frictionless ways for visitors to contact you.
                 </motion.p>
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  I handle strategy, design, and build end-to-end, so you get a site that feels like you - and actually converts.
+                  I handle strategy, design, and build end-to-end, so you get a site that feels like you—and actually converts.
                 </motion.p>
               </motion.div>
 
