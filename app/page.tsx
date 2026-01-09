@@ -335,7 +335,7 @@ const [emailCopied, setEmailCopied] = React.useState(false);
             className="text-center mb-16"
           >
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              Small-studio builds with big-agency care
+              Your partner in creating websites that convert
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full"></div>
           </motion.div>
