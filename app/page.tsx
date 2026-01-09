@@ -359,10 +359,10 @@ const [emailCopied, setEmailCopied] = React.useState(false);
                 className="space-y-6"
               >
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  I&apos;m <span className="font-semibold text-teal-700">Ioana</span>, a UK-based web developer working with service businesses internationally. My focus: clear messaging, fast load times, and frictionless ways for visitors to contact you.
+                  I&apos;m <span className="font-semibold text-teal-700">Ioana</span>, a UK-based web developer working with service businesses internationally who want a clear online home that turns website visitors into paying clients.
                 </motion.p>
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  I handle strategy, design, and build end-to-end, so you get a site that feels like you—and actually converts.
+                  I build simple, custom websites from scratch that clearly present your services and make it easy for clients to get in touch — without templates or monthly platform fees.
                 </motion.p>
               </motion.div>
 
@@ -384,23 +384,23 @@ const [emailCopied, setEmailCopied] = React.useState(false);
                   {[
                     {
                       icon: Heart,
-                      title: "Friendly",
+                      title: "Clear Value Communication",
                       description:
-                        "Clear communication, weekly check-ins, and a process that feels collaborative—never confusing.",
+                        "Your services explained in plain language with benefit-focused messaging that resonates with your ideal clients.",
                       color: "from-pink-400 to-red-400",
                     },
                     {
                       icon: Star,
-                      title: "Minimal & Effective",
+                      title: "Mobile-First & Fast Performance",
                       description:
-                        "Clean layouts that spotlight what you do, paired with crisp CTAs that move visitors to act.",
+                        "Optimized for every device with lightning-fast load times that keep visitors engaged and search engines happy.",
                       color: "from-yellow-400 to-orange-400",
                     },
                     {
                       icon: Zap,
-                      title: "Tailored to You ",
+                      title: "Designed to Drive Contact",
                       description:
-                        "Custom builds tied to your goals—no templates, no bloat, no recurring platform fees.",
+                        "Strategic CTAs, clear contact forms, and frictionless paths that turn browsers into leads and clients.",
                       color: "from-teal-400 to-blue-400",
                     },
                   ].map((value) => (
@@ -486,7 +486,7 @@ const [emailCopied, setEmailCopied] = React.useState(false);
                     asChild
                   >
                     <a href="#contact">
-                      Start Your Project
+                      See How It Works
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>

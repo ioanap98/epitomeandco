@@ -25,7 +25,7 @@ export default function PortfolioSection() {
     () => [
       {
         title: "Photography Portfolio Website",
-        subtitle: "Portfolio site for a professional photographer",
+        subtitle: "Built a visual-first gallery site to showcase work and direct potential clients to a clear booking flow—turning browsers into booked sessions.",
         images: [
           "/photography-website.jpeg",
           "/photography-website-1.png",
@@ -42,7 +42,7 @@ export default function PortfolioSection() {
       },
       {
         title: "Pilates Instructor Website",
-        subtitle: "Website for a local pilates instructor",
+        subtitle: "Designed a simple one-page site to clearly present services, session types, and booking options—helping the client turn Instagram traffic into inquiries.",
         images: [
           "/pilates-website.jpeg",
           "/pilates_image_1.png",
@@ -57,7 +57,7 @@ export default function PortfolioSection() {
       },
       {
         title: "About Page Design",
-        subtitle: "Bio & values section mockup",
+        subtitle: "Created a founder story section with values and mission to build trust and connect emotionally with visitors before they reach out.",
         images: [
           "/islamic-website.jpeg",
           "/islamic-website-1.png",
