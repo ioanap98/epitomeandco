@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { Button } from "@/components/ui/button";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Keyboard } from "swiper/modules";
 import "swiper/css";
@@ -15,14 +17,15 @@ type Project = {
   subtitle: string;
   images: string[];
   url?: string;
+  tags?: string[];
 };
 
 export default function PortfolioSection() {
   const projects: Project[] = useMemo(
     () => [
       {
-        title: "Homepage Concept",
-        subtitle: "Hero section & intro layout",
+        title: "Photography Portfolio Website",
+        subtitle: "Portfolio site for a professional photographer",
         images: [
           "/photography-website.jpeg",
           "/photography-website-1.png",
@@ -35,10 +38,11 @@ export default function PortfolioSection() {
           "/photography-website-8.png",
           "/photography-website-9.png",
         ],
+        tags: ["Service hero", "Lead CTA", "Gallery"],
       },
       {
-        title: "Pilates Studio Website",
-        subtitle: "Full site design for a Pilates studio",
+        title: "Pilates Instructor Website",
+        subtitle: "Website for a local pilates instructor",
         images: [
           "/pilates-website.jpeg",
           "/pilates_image_1.png",
@@ -49,6 +53,7 @@ export default function PortfolioSection() {
           "/pilates_image_6.png",
           "/pilates_image_7.png",
         ],
+        tags: ["Local services", "Booking flow", "Testimonials"],
       },
       {
         title: "About Page Design",
@@ -60,6 +65,7 @@ export default function PortfolioSection() {
           "/islamic-website-3.png",
           "/islamic-website-4.png",
         ],
+        tags: ["Founder story", "Values", "Soft motion"],
       },
     ],
     []
@@ -131,10 +137,10 @@ export default function PortfolioSection() {
           className="text-center mb-16"
         >
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            See What I&apos;ve Been Creating
+            Recent client-ready layouts
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Selected examples and layout concepts. Click any card to view the full gallery.
+            A few examples of benefit-focused pages: clear heroes, concise service blocks, and easy ways to get in touch.
           </p>
         </motion.div>
 
@@ -195,15 +201,49 @@ export default function PortfolioSection() {
                 </div>
 
                 {/* Footer */}
-                <div className="p-4">
+                <div className="p-4 space-y-3">
                   <div className="inline-flex items-center text-sm font-medium text-gray-900">
                     View gallery
                     <span className="ml-2 text-gray-500">({project.images.length} images)</span>
                   </div>
+
+                  {project.tags && project.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-700"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </motion.button>
             );
           })}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mt-14 text-center"
+        >
+          <p className="text-base text-gray-600 mb-4">
+            Want a site like these, tailored to your offer? I can design and build it end-to-end.
+          </p>
+          <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              size="lg"
+              className="bg-teal-700 hover:bg-teal-800 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              asChild
+            >
+              <a href="#contact">Request a Website</a>
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
 

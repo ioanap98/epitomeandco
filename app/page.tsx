@@ -249,12 +249,12 @@ const [emailCopied, setEmailCopied] = React.useState(false);
             animate="visible"
             className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
           >
-            {["Helping", "small", "brands", "&", "creators", "stand", "out", "online"].map((word, index) => (
+            {["Professional", "Websites", "That", "Turns", "Visitors", "Into", "Clients"].map((word, index) => (
               <motion.span
                 key={index}
                 custom={index}
                 variants={wordVariants}
-                className={`inline-block mr-3 ${index >= 5 ? "text-teal-700" : ""}`}
+                className={`inline-block mr-3 ${index >= 4 ? "text-teal-700" : ""}`}
               >
                 {word}
               </motion.span>
@@ -267,7 +267,7 @@ const [emailCopied, setEmailCopied] = React.useState(false);
             transition={{ delay: 1.8, duration: 0.8 }}
             className="text-xl sm:text-2xl text-gray-600 mb-8 font-light"
           >
-            Simple & stylish portfolio websites. 
+            I design simple, custom websites for service businesses, built from scratch to clearly showcase your services and make it easy for people to reach out. No monthly fees. No clutter.
           </motion.p>
 
           <motion.div
@@ -281,8 +281,8 @@ const [emailCopied, setEmailCopied] = React.useState(false);
                 className="bg-teal-700 hover:bg-teal-800 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
                 asChild
               >
-                <a href="#services">
-                  View Services
+                <a href="#contact">
+                  Request a Website
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
@@ -335,7 +335,7 @@ const [emailCopied, setEmailCopied] = React.useState(false);
             className="text-center mb-16"
           >
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              Meet the Creative Behind the Code
+              Small-studio builds with big-agency care
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full"></div>
           </motion.div>
@@ -359,10 +359,10 @@ const [emailCopied, setEmailCopied] = React.useState(false);
                 className="space-y-6"
               >
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  Hi, I&apos;m <span className="font-semibold text-teal-700">Ioana</span>! I&apos;m a UK-based web developer who helps small brands and independent creatives build an intentional online presence through clean, minimal portfolio websites.
+                  I&apos;m <span className="font-semibold text-teal-700">Ioana</span>, a UK-based developer who builds lean, custom sites for service businesses. My focus: clear messaging, fast load times, and frictionless ways for visitors to contact you.
                 </motion.p>
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  Whether you&apos;re an artist, service provider, or content creator, I&apos;ll work with you to build a custom portfolio that reflects your vision and makes your work shine.
+                  I handle strategy, design, and build end-to-end, so you get a site that feels like you - and actually converts.
                 </motion.p>
               </motion.div>
 
@@ -386,21 +386,21 @@ const [emailCopied, setEmailCopied] = React.useState(false);
                       icon: Heart,
                       title: "Friendly",
                       description:
-                        "Building genuine connections with every client, making the creative process enjoyable and stress-free.",
+                        "Clear communication, weekly check-ins, and a process that feels collaborative—never confusing.",
                       color: "from-pink-400 to-red-400",
                     },
                     {
                       icon: Star,
                       title: "Minimal & Effective",
                       description:
-                        "Clean design that puts your work front and center.",
+                        "Clean layouts that spotlight what you do, paired with crisp CTAs that move visitors to act.",
                       color: "from-yellow-400 to-orange-400",
                     },
                     {
                       icon: Zap,
                       title: "Tailored to You ",
                       description:
-                        "Every portfolio is built around your unique goals and style.",
+                        "Custom builds tied to your goals—no templates, no bloat, no recurring platform fees.",
                       color: "from-teal-400 to-blue-400",
                     },
                   ].map((value) => (
@@ -507,9 +507,9 @@ const [emailCopied, setEmailCopied] = React.useState(false);
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What I Can Do for You</h2>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Services built to win clients</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Simple Portfolio Websites for Creatives & Small Brands
+              Conversion-focused, custom sites that make it effortless for people to understand what you do and reach out.
             </p>
           </motion.div>
 
@@ -523,21 +523,21 @@ const [emailCopied, setEmailCopied] = React.useState(false);
             {[
               {
                 icon: Monitor,
-                title: "Custom Portfolio Website",
+                title: "Conversion-first website build",
                 description:
-                  "Clean, responsive one-page or multi-page websites designed to showcase your work professionally. No templates, just thoughtful, custom layouts tailored to your brand.",
+                  "Custom, mobile-friendly pages with persuasive messaging, clear service sections, FAQs, and a hero designed to drive inquiries—no templates, ever.",
               },
               {
                 icon: Stars,
-                title: "Subtle Animations & Interactive Elements",
+                title: "Lightweight motion & trust signals",
                 description:
-                  "Bring your site to life with modern animations and hover effects that make browsing more enjoyable, without overwhelming the user. These subtle touches give your portfolio a polished, high-end feel.",
+                  "Micro-animations, testimonials, and proof points that keep visitors engaged and confident without slowing the experience.",
               },
               {
                 icon: Wrench,
-                title: "Launch & Aftercare Toolkit",
+                title: "Launch, handoff, and zero monthly fees",
                 description:
-                  "Don’t worry about the tech or launch stress, I’ll handle domain setup, basic SEO, and handover guidance.  Once your site is live, you’ll have everything you need to share it with confidence.",
+                  "Domain, basic SEO, analytics, and a clear handoff so you can run it yourself. No recurring platform fees or hidden costs.",
               },
             ].map((service) => (
               <motion.div key={service.title} variants={serviceVariants} whileHover="hover" className="cursor-pointer">
@@ -572,7 +572,7 @@ const [emailCopied, setEmailCopied] = React.useState(false);
                 asChild
               >
                 <a href="#contact">
-                  Get a Custom Quote
+                  Request a Website
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
@@ -599,11 +599,22 @@ const [emailCopied, setEmailCopied] = React.useState(false);
             className="text-center mb-12"
           >
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Ready to bring your idea to life?
+              Ready to launch a site that brings in clients?
             </h2>
             <p className="text-xl text-gray-600">
-              Let&apos;s chat about your project and see how we can work together to create something amazing.
+              Share your project details and I&apos;ll reply within one business day with next steps.
             </p>
+
+            <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm text-gray-700">
+              {["Clear, conversion-focused copy", "Mobile-first design", "No monthly platform fees"].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-stone-200 bg-white px-3 py-1 shadow-sm"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </motion.div>
 
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -806,7 +817,7 @@ const [emailCopied, setEmailCopied] = React.useState(false);
         className="bg-white border-t border-stone-200 py-4 px-4 sm:px-4 lg:px-8"
       >
         <div className="flex items-center justify-center mx-auto ">
-            <p className="text-gray-600">© 2025 Epitome & Co</p>
+            <p className="text-gray-600">© 2026 Epitome & Co</p>
         </div>
 
       </motion.footer>
