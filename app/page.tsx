@@ -190,7 +190,7 @@ const [emailCopied, setEmailCopied] = React.useState(false);
               transition={{ delay: 0.3, duration: 0.6 }}
               className="font-serif text-xl font-bold text-teal-700"
             >
-              EPITOME & Co
+              Ioana Web Studio
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -362,7 +362,7 @@ const [emailCopied, setEmailCopied] = React.useState(false);
                   I&apos;m <span className="font-semibold text-teal-700">Ioana</span>, a UK-based web developer working with service businesses internationally who want a clear online home that turns website visitors into paying clients.
                 </motion.p>
                 <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-                  I build simple, custom websites from scratch that clearly present your services and make it easy for clients to get in touch — without templates or monthly platform fees.
+                  I build simple, custom websites from scratch that clearly present your services and make it easy for clients to get in touch - without templates or monthly platform fees.
                 </motion.p>
               </motion.div>
 
@@ -739,7 +739,7 @@ const [emailCopied, setEmailCopied] = React.useState(false);
   whileHover={{ scale: 1.05, y: -2 }}
   whileTap={{ scale: 0.95 }}
   onClick={async () => {
-    const email = "hello@epitomecreatives.com";
+    const email = "hello@ioanawebstudio.com";
     try {
       await navigator.clipboard.writeText(email);
     } catch {
@@ -817,7 +817,7 @@ const [emailCopied, setEmailCopied] = React.useState(false);
         className="bg-white border-t border-stone-200 py-4 px-4 sm:px-4 lg:px-8"
       >
         <div className="flex items-center justify-center mx-auto ">
-            <p className="text-gray-600">© 2026 Epitome & Co</p>
+            <p className="text-gray-600">© 2026 Ioana Web Studio</p>
         </div>
 
       </motion.footer>
