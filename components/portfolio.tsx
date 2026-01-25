@@ -56,16 +56,16 @@ export default function PortfolioSection() {
         tags: ["Local services", "Booking flow", "Testimonials"],
       },
       {
-        title: "About Page Design",
-        subtitle: "Created a founder story section with values and mission to build trust and connect emotionally with visitors before they reach out.",
+        title: "Language Learning Platform",
+        subtitle: "Built a web app connecting students with language teachers—featuring booking flows, teacher profiles, and session management to simplify scheduling.",
         images: [
-          "/islamic-website.jpeg",
-          "/islamic-website-1.png",
-          "/islamic-website-2.png",
-          "/islamic-website-3.png",
-          "/islamic-website-4.png",
+        
+          "/LB-1.png",
+          "/LB-2.png",
+          "/LB-3.png",
+          "/LB-4.png",
         ],
-        tags: ["Founder story", "Values", "Soft motion"],
+        tags: ["Booking platform", "Teacher profiles", "Session management"],
       },
     ],
     []
@@ -167,7 +167,7 @@ export default function PortfolioSection() {
                 aria-label={`Open ${project.title} gallery`}
               >
                 {/* Cover image */}
-                <div className="relative aspect-[16/10] w-full bg-gray-50">
+                <div className="relative aspect-[16/10] w-full bg-gray-50 overflow-hidden">
                   {cover ? (
                     <Image
                       src={cover}
@@ -183,32 +183,35 @@ export default function PortfolioSection() {
                     </div>
                   )}
 
-                  {/* Subtle overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-80" />
-
                   {/* +N badge */}
                   {extraCount > 0 && (
-                    <div className="absolute top-3 right-3 rounded-full bg-black/70 px-3 py-1 text-xs text-white backdrop-blur">
+                    <div className="absolute top-3 right-3 rounded-full bg-black/80 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
                       +{extraCount}
                     </div>
                   )}
-
-                  {/* Title block */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h3 className="font-serif text-lg font-bold leading-snug">{project.title}</h3>
-                    <p className="text-sm opacity-90">{project.subtitle}</p>
-                  </div>
                 </div>
 
-                {/* Footer */}
-                <div className="p-4 space-y-3">
-                  <div className="inline-flex items-center text-sm font-medium text-gray-900">
+                {/* Content area - now with clear white background */}
+                <div className="p-5 space-y-3">
+                  {/* Title and subtitle */}
+                  <div className="space-y-2">
+                    <h3 className="font-serif text-xl font-bold text-gray-900 leading-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">
+                      {project.subtitle}
+                    </p>
+                  </div>
+
+                  {/* View gallery link */}
+                  <div className="inline-flex items-center text-sm font-medium text-gray-900 pt-1">
                     View gallery
                     <span className="ml-2 text-gray-500">({project.images.length} images)</span>
                   </div>
 
+                  {/* Tags */}
                   {project.tags && project.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 pt-1">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
